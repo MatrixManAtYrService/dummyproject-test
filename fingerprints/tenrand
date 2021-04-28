@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+pushd $1
+RANDOM=42
+for num in $(seq 10)
+do
+    # writes to stdout, which the TDID dag aggregates as a fingerprint
+    ./addone.sh $RANDOM
+done
+popd

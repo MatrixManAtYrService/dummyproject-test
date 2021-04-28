@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+pushd $1
+INVAL=99
+EXPECT=100
+OUTVAL=$(./addone.sh $INVAL)
+if [[ $OUTVAL == $EXPECT ]]
+then
+    # signal to tdid pipeline that this test passed
+    exit 0
+else
+    # signal to tdid pipeline thatt this test failed
+    exit 101
+fi
+popd
